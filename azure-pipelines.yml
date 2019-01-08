@@ -13,10 +13,12 @@ variables:
   - group: 'Test Docker Demo'
   - name: imageName
     value: 'azure-pipeline-docker-demo:$(build.buildId)'
+  - name: 'dockerId'
+    value: 'akzoshipyarddemo'
 
 steps:
 - script: |
-    docker build -t $(secret.dockerId).azurecr.io/$(imageName) .
-    docker login -u $(secret.dockerId) -p $(secret.pswd) $(dockerId).azurecr.io
-    docker push $(secret.dockerId).azurecr.io/$(imageName)
+    docker build -t $(dockerId).azurecr.io/$(imageName) .
+    docker login -u $(dockerId) -p $(docker-password) $(dockerId).azurecr.io
+    docker push $(dockerId).azurecr.io/$(imageName)
   displayName: 'docker build'
