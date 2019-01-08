@@ -10,7 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  - imageName: 'azure-pipeline-docker-demo:$(build.buildId)'
+  - name: imageName
+    value: 'azure-pipeline-docker-demo:$(build.buildId)'
   - group: 'Test Docker Demo'
 
 steps:
