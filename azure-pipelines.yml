@@ -13,8 +13,6 @@ variables:
   - group: 'Test Docker Demo'
   - name: imageName
     value: 'azure-pipeline-docker-demo:$(build.buildId)'
-  - name: 'dockerId'
-    value: 'akzoshipyarddemo'
 
 steps:
 - script: |
